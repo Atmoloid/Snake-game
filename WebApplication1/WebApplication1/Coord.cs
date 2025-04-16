@@ -19,5 +19,16 @@ using System;
 
         }
 
+        public override bool Equals(object? obj)
+        {
+          if((obj == null) || !GetType().Equals(obj.GetType())){ 
+                return false;
+
+
+                Coord other = (Coord)obj;
+                return other.x && y == other.y;
+           }
+        }
+
       }
     }

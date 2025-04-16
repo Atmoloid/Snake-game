@@ -9,10 +9,10 @@ Coord snakePos = new Coord(10,0);
        
        Coord currentCoord = new Coord (x,y);
 
-        if(snakePos == currentCoord){
+        if(snakePos.Equals(currentCoord)){
             Console.WriteLine("■");
         }
-        if(x == 0 || y == 0 || x == gridDimensions.X - 1 || y == gridDimensions.Y - 1){
+        else if(x == 0 || y == 0 || x == gridDimensions.X - 1 || y == gridDimensions.Y - 1){
                Console.Write("#");
         }
         else{
