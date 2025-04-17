@@ -44,5 +44,24 @@ using System;
             return x == other.x && y == other.y; // Corrected comparison
         }
 
+        public void ApplyMovementDirection( Direction direction){
+              
+              switch(direction){
+                case Direction.Left:
+                x--;
+                break;
+                case Direction.Right:
+                x++;
+                break;
+                case Direction.Up:
+                y--;
+                break;
+                case Direction.Down:
+                y++;
+                break;
+              }
+
+        }
+
       }
     }
