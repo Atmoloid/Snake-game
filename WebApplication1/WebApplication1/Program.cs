@@ -6,9 +6,14 @@ Random rand = new Random();
 Coord applePos = new Coord(rand.Next(1, gridDimensions.X - 1), rand.Next(1, gridDimensions.Y - 1));
 int frameDelaysMilli = 100;
 Direction movementDirection = Direction.Down;
+int score = 0;
+
+List<Coord> snakePositionHistory = new List<Coord>();
+int tailLength = 1;
 
 while(true){
     Console.Clear();
+    Console.WriteLine("Score: " + score);
     snakePos.ApplyMovementDirection(movementDirection);
 
  for ( int y = 0; y < gridDimensions.Y; y++){
@@ -17,7 +22,7 @@ while(true){
        
        Coord currentCoord = new Coord (x,y);
 
-        if(snakePos.Equals(currentCoord)){
+        if(snakePos.Equals(currentCoord) || snakePositionHistory.Contains(currentCoord)){
             Console.WriteLine("■");
         }
         else if(applePos.Equals(currentCoord)){
@@ -29,9 +34,24 @@ while(true){
         else{
             Console.Write(" ");
         }
-        Console.WriteLine();
+       
     }
+    Console.WriteLine();
  }
+ if(snakePos.Equals(applePos)){
+  tailLength++;
+  score++;
+  applePos = new Coord(rand.Next(1, gridDimensions.X - 1), rand.Next(1, gridDimensions.Y - 1));
+ }
+ else if(snakePos.X == 0 || snakePos.Y == 0 || snakePos.X == gridDimensions.X - 1 || snakePos.Y == gridDimensions.Y - 1){
+
+ };
+
+ snakePositionHistory.Add( new Coord(snakePos.X, snakePos.Y));
+
+ if(snakePositionHistory.Count > tailLength){ 
+  snakePositionHistory.RemoveAt(0);
+ };
  DateTime time = DateTime.Now;
 
  while((DateTime.Now - time).Milliseconds < frameDelaysMilli){
