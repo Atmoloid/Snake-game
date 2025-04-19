@@ -43,8 +43,15 @@ while(true){
   score++;
   applePos = new Coord(rand.Next(1, gridDimensions.X - 1), rand.Next(1, gridDimensions.Y - 1));
  }
- else if(snakePos.X == 0 || snakePos.Y == 0 || snakePos.X == gridDimensions.X - 1 || snakePos.Y == gridDimensions.Y - 1){
-
+ else if(snakePos.X == 0 || snakePos.Y == 0 || snakePos.X == gridDimensions.X - 1 || snakePos.Y == gridDimensions.Y - 1 || snakePositionHistory.Contains(snakePos)){
+    
+    score = 0;
+    tailLength = 1;
+    snakePos = new Coord(10,1);
+    snakePositionHistory.Clear();
+    movementDirection = Direction.Down;
+    continue;
+    
  };
 
  snakePositionHistory.Add( new Coord(snakePos.X, snakePos.Y));
