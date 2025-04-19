@@ -1,4 +1,4 @@
-Snake Game
+## Snake Game
 
 This is a classic Snake game implemented in **C#**. The game allows players to control a snake, collect food, and grow in size while avoiding collisions with walls or the snake's own body.
 
@@ -8,8 +8,7 @@ This is a classic Snake game implemented in **C#**. The game allows players to c
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Code Overview](#code-overview)
-5. [Contributing](#contributing)
-6. [License](#license)
+
 
 ---
 
